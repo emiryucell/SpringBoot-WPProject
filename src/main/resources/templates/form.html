@@ -1,9 +1,56 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Health Form</title>
+	<title>Health Form</title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-<h1>Health Form</h1>
+	<h1>Health Form</h1>
+	<h2>Please Fill The Form According To Your Health Information</h2>
+	<form action="/send-health-info" method="post" th:object="${person}">
+		<table>
+			<tr>
+				<td class="field-name">Name: </td >
+				<td><input type="text" th:field="*{name}"></td>
+			</tr>
+			<tr>
+				<td class="field-name">Surname: </td>
+				<td><input type="text" th:field="*{surName}"></td>
+			</tr>
+			<tr>
+				<td class="field-name">Age: </td>
+				<td><input type="text" th:field="*{age}"></td>
+			</tr>
+			<tr>
+				<td class="field-name">Gender: </td>
+				<td><select th:field="*{gender}">
+				<option value="">Select</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td class="field-name">Weight: </td>
+				<td><input type="text" th:field="*{weight}"></td>
+			</tr>
+			<tr>
+				<td class="field-name">Height: </td>
+				<td><input type="text" th:field="*{height}"></td>
+			</tr>
+			<tr>
+				<td class="field-name">Emotions: </td>
+		<td><input type="checkbox"  th:field="*{emotions}" value="happy"><span class="emotions-field">Happy</span>
+			<input type="checkbox"  th:field="*{emotions}" value="sad"><span class="emotions-field">Sad</span>
+			<input type="checkbox"  th:field="*{emotions}" value="stressful"><span class="emotions-field">Stressful</span>
+			<input type="checkbox"  th:field="*{emotions}" value="angry"><span class="emotions-field">Angry</span></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Send"></td>
+			</tr>
+		</table>
+	</form>
 </body>
+
 </html>

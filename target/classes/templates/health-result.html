@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Health Result</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+	<h1>Health Result</h1>
+	<table th:object="${person}">
+		<tr>
+			<td class="field-name">Name: </td>
+			<td th:text="*{name}"></td>
+		</tr>
+		<tr>
+			<td class="field-name">Surname: </td>
+			<td th:text="*{surName}"></td>
+		</tr>
+		<tr>
+			<td class="field-name">Age: </td>
+			<td th:text="*{age}"></td>
+		</tr>
+		<tr>
+			<td class="field-name">Gender: </td>
+			<td th:text="*{gender}"></td>
+		</tr>
+		<tr>
+			<td class="field-name">Weight: </td>
+			<td th:text="*{weight}"></td>
+		</tr>
+		<tr>
+			<td class="field-name">Height: </td>
+			<td th:text="*{height}"></td>
+		</tr>
+		<tr>
+			<td class="field-name">Emotions: </td>
+			<td>
+				<span th:each="item , status : *{emotions}">
+					<span th:if="${status.last}" th:text="${item}+ '.'"></span>
+					<span th:unless="${status.last}" th:text="${item}+',' "></span>
+				</span>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
