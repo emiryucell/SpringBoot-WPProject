@@ -7,6 +7,7 @@
 </head>
 
 <body>
+<div id="main-container">
 	<h1>Health Result</h1>
 	<table th:object="${person}">
 		<tr>
@@ -22,16 +23,20 @@
 			<td th:text="*{age}"></td>
 		</tr>
 		<tr>
+			<td class="field-name">Birthday: </td>
+			<td th:text="*{#temporals.format(birthday,'dd.MM.yyyy')}"></td>
+		</tr>
+		<tr>
 			<td class="field-name">Gender: </td>
 			<td th:text="*{gender}"></td>
 		</tr>
 		<tr>
 			<td class="field-name">Weight: </td>
-			<td th:text="*{weight}"></td>
+			<td th:text="*{weight}+ 'kg'"></td>
 		</tr>
 		<tr>
 			<td class="field-name">Height: </td>
-			<td th:text="*{height}"></td>
+			<td th:text="*{height} + 'm'"></td>
 		</tr>
 		<tr>
 			<td class="field-name">Emotions: </td>
@@ -42,7 +47,16 @@
 				</span>
 			</td>
 		</tr>
+		<tr>
+			<td class="field-name">Body Mass Index (BMI):</td>
+			<td th:text="*{#numbers.formatDecimal(bodyMassIndex,1,2)} "></td>
+		</tr>
+		<tr>
+			<td><a href="form.html">Go back</a></td>
+			
+		</tr>
 	</table>
+</div>
 </body>
 
 </html>

@@ -2,8 +2,12 @@
 body{
 	background-color:#E37E6C ;
 }
+#main-container{
+	 max-width: 500px;
+  margin: auto;
+}
 h1,h2,h3{
-	color:white
+	color:white;
 }
 .field-name{
 	color:white;

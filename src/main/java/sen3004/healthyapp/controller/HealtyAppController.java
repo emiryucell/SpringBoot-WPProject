@@ -14,7 +14,7 @@ import sen3004.healthyapp.model.Person;
 @Controller
 public class HealtyAppController {
 
-	@RequestMapping(value = { "/health-form" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/health-form" ,"/form.html"}, method = RequestMethod.GET)
 	public ModelAndView displayHealthForm() {
 		ModelAndView mv = new ModelAndView("form");
 		mv.addObject("person", new Person());
