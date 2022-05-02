@@ -30,13 +30,27 @@ public class Person {
 	private LocalDate birthday;
 	@NotEmpty
 	private List<String> emotions;
+	
+	public String getResult() {
+		if(getBodyMassIndex()<18.5d) {
+			return "you are underweight";
+		}else if(getBodyMassIndex()>18.5d && getBodyMassIndex()<25) {
+			return "you are normal weight";
+		}else if(getBodyMassIndex()>25 && getBodyMassIndex()<30) {
+			return "you are overweight";
+		}else {
+			return "you are obese";
+		}
+		
+		
+	}
 
 	public int getAge() {
-		return Period.between(birthday, LocalDate.now()).getYears();
+		return Period.between(getBirthday(), LocalDate.now()).getYears();
 	}
 
 	public double getBodyMassIndex() {
-		return weight / (height * height);
+		return getWeight() / (getHeight() * getHeight());
 	}
 
 	public List<String> getEmotions() {

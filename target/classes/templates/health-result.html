@@ -52,6 +52,13 @@
 			<td th:text="*{#numbers.formatDecimal(bodyMassIndex,1,2)} "></td>
 		</tr>
 		<tr>
+			<td class="field-name">Result: </td>
+			<td >You are 
+			<span th:each="item, status : *{emotions} ">
+			<span th:text="${status.last} == true ?  ${item}+' because '+*{result} :  ${item}+','"></span>
+			</span></td>
+		</tr>
+		<tr>
 			<td><a href="form.html">Go back</a></td>
 			
 		</tr>
